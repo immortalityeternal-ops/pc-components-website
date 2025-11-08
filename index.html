@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PC Components - Магазин комплектующих ПК</title>
     
-    <!-- ПОДКЛЮЧАЕМ ВАШИ ФАЙЛЫ -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/fontello.css" rel="stylesheet">
     
@@ -37,12 +36,10 @@
             margin-bottom: 1rem;
         }
         
-        /* ПЛАВНАЯ ПРОКРУТКА КАК В ВИДЕО */
         html {
             scroll-behavior: smooth;
         }
         
-        /* Дополнительные стили для навигации */
         .navbar-nav .nav-link {
             transition: color 0.3s ease;
         }
@@ -52,7 +49,7 @@
     </style>
 </head>
 <body>
-    <!-- Шапка сайта -->
+
     <header>
             <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
@@ -74,7 +71,6 @@
         </nav>
     </header>
 
-    <!-- Герой секция -->
     <section id="home" class="tech-gradient text-white py-5">
         <div class="container">
             <div class="row align-items-center">
@@ -86,14 +82,13 @@
                     </button>
                 </div>
                 <div class="col-lg-6 text-center">
-                    <!-- ГЛАВНОЕ ИЗОБРАЖЕНИЕ -->
+
                     <img src="img/hero-pc.jpg" alt="Сборка ПК" class="img-fluid hero-image">
                 </div>
             </div>
         </div>
     </section>
 
-<!-- Модальное окно консультации -->
 <div class="modal fade" id="consultModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -102,7 +97,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <!-- ФОРМА С УВЕДОМЛЕНИЕМ -->
+
                 <form onsubmit="event.preventDefault(); alert('✅ Заявка отправлена! Мы свяжемся с вами в течение 24 часов.'); this.reset(); document.querySelector('.btn-close').click();">
                     <div class="mb-3">
                         <label class="form-label"><i class="icon-user"></i> Ваше имя</label>
@@ -137,12 +132,10 @@
     </div>
 </div>
 
-    <!-- Сетка 3x3 с комплектующими -->
     <section id="components" class="py-5">
         <div class="container">
             <h2 class="text-center mb-5"><i class="icon-fire"></i> Популярные комплектующие</h2>
             <div class="row">
-                <!-- Видеокарта -->
                 <div class="col-md-4 mb-4">
                     <div class="card component-card h-100 text-center">
                         <div class="card-body">
@@ -157,7 +150,6 @@
                     </div>
                 </div>
 
-                <!-- Процессоры -->
                 <div class="col-md-4 mb-4">
                     <div class="card component-card h-100 text-center">
                         <div class="card-body">
@@ -171,8 +163,7 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Материнские платы -->
+                
                 <div class="col-md-4 mb-4">
                     <div class="card component-card h-100 text-center">
                         <div class="card-body">
@@ -187,10 +178,8 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Вторая строка комплектующих -->
+            
             <div class="row mt-4">
-                <!-- Оперативная память -->
                 <div class="col-md-4 mb-4">
                     <div class="card component-card h-100 text-center">
                         <div class="card-body">
@@ -205,7 +194,6 @@
                     </div>
                 </div>
 
-                <!-- Накопители -->
                 <div class="col-md-4 mb-4">
                     <div class="card component-card h-100 text-center">
                         <div class="card-body">
@@ -220,7 +208,6 @@
                     </div>
                 </div>
 
-                <!-- Блоки питания -->
                 <div class="col-md-4 mb-4">
                     <div class="card component-card h-100 text-center">
                         <div class="card-body">
@@ -237,13 +224,11 @@
             </div>
         </div>
     </section>
-
-    <!-- Аккордеон с FAQ -->
+    
     <section id="support" class="py-5 bg-light">
         <div class="container">
             <h2 class="text-center mb-5"><i class="icon-help-circled"></i> Часто задаваемые вопросы</h2>
             <div class="accordion" id="faqAccordion">
-                <!-- Вопрос 1 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
@@ -257,7 +242,6 @@
                     </div>
                 </div>
 
-                <!-- Вопрос 2 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
@@ -271,7 +255,6 @@
                     </div>
                 </div>
 
-                <!-- Вопрос 3 -->
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
@@ -287,7 +270,6 @@
             </div>
         </div>
     </section>
-    <!-- Секция сбора средств как в видео -->
     <section id="donate" class="py-5 bg-primary text-white">
         <div class="container">
             <div class="row align-items-center">
@@ -307,9 +289,7 @@
                         <div class="card-body text-dark">
                             <h5 class="card-title text-center">Поддержать проект</h5>
                             
-                            <!-- Форма доната как в видео -->
                             <form action="https://yoomoney.ru/quickpay/confirm.xml" method="POST" target="_blank">
-                                <!-- Сумма доната -->
                                 <div class="mb-3">
                                     <label class="form-label">Сумма поддержки</label>
                                     <div class="input-group">
@@ -318,14 +298,12 @@
                                     </div>
                                     <div class="form-text">Минимальная сумма 100 рублей</div>
                                 </div>
-                                
-                                <!-- Ваши пожелания -->
+
                                 <div class="mb-3">
                                     <label class="form-label">Ваши пожелания (необязательно)</label>
                                     <textarea class="form-control" name="comment" rows="2" placeholder="На что направить средства?"></textarea>
                                 </div>
                                 
-                                <!-- Скрытые поля для ЮMoney -->
                                 <input type="hidden" name="receiver" value="4100119404046777">
                                 <input type="hidden" name="formcomment" value="PC Components: поддержка проекта">
                                 <input type="hidden" name="short-dest" value="Поддержка проекта PC Components">
@@ -333,8 +311,7 @@
                                 <input type="hidden" name="quickpay-form" value="donate">
                                 <input type="hidden" name="targets" value="Поддержка проекта PC Components">
                                 <input type="hidden" name="successURL" value="https://immortalityeternal-ops.github.io/pc-components-website">
-                                
-                                <!-- Кнопка оплаты -->
+
                                 <div class="d-grid">
                                     <button type="submit" class="btn btn-warning btn-lg">
                                         <i class="icon-money"></i> Поддержать проект
@@ -351,16 +328,15 @@
             </div>
         </div>
     </section>
-    <!-- Футер -->
     <footer class="bg-dark text-white py-3">
         <div class="container text-center">
             <h5>PC Components</h5>
         </div>
     </footer>
 
-    <!-- ПОДКЛЮЧАЕМ ВАШ JS ФАЙЛ -->
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
 Update YooMoney wallet number
+
