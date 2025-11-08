@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Components - Магазин комплектующих ПК</title>
+    
+    <!-- ПОДКЛЮЧАЕМ ВАШИ ФАЙЛЫ -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/fontello.css" rel="stylesheet">
+    
+    <style>
+        .tech-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .component-card {
+            transition: transform 0.3s ease;
+        }
+        .component-card:hover {
+            transform: translateY(-5px);
+        }
+        .category-badge {
+            font-size: 0.8rem;
+        }
+        .icon-large {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #007bff;
+        }
+        .hero-image {
+            max-height: 400px;
+            width: auto;
+        }
+        .component-image {
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+        
+        /* ПЛАВНАЯ ПРОКРУТКА КАК В ВИДЕО */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Дополнительные стили для навигации */
+        .navbar-nav .nav-link {
+            transition: color 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #00ff88 !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#home"><i class="icon-home"></i> Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#components"><i class="icon-cog"></i> Комплектующие</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#support"><i class="icon-help-circled"></i> Поддержка</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#donate"><i class="icon-heart"></i> Поддержать</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Герой секция -->
+    <section id="home" class="tech-gradient text-white py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold">Собери свой идеальный ПК</h1>
+                    <p class="lead">Процессоры, видеокарты, материнские платы и всё для сборки мощного компьютера</p>
+                    <button class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#consultModal">
+                        <i class="icon-chat"></i> Бесплатная консультация
+                    </button>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <!-- ГЛАВНОЕ ИЗОБРАЖЕНИЕ -->
+                    <img src="img/hero-pc.jpg" alt="Сборка ПК" class="img-fluid hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Модальное окно консультации -->
+<div class="modal fade" id="consultModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="icon-chat"></i> Консультация по сборке ПК</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <!-- ФОРМА С УВЕДОМЛЕНИЕМ -->
+                <form onsubmit="event.preventDefault(); alert('✅ Заявка отправлена! Мы свяжемся с вами в течение 24 часов.'); this.reset(); document.querySelector('.btn-close').click();">
+                    <div class="mb-3">
+                        <label class="form-label"><i class="icon-user"></i> Ваше имя</label>
+                        <input type="text" class="form-control" placeholder="Введите имя" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><i class="icon-mail"></i> Ваш Email</label>
+                        <input type="email" class="form-control" placeholder="Введите email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><i class="icon-money"></i> Бюджет сборки</label>
+                        <select class="form-select" required>
+                            <option value="">Выберите бюджет</option>
+                            <option>До 50,000 ₽</option>
+                            <option>50,000 - 100,000 ₽</option>
+                            <option>100,000 - 200,000 ₽</option>
+                            <option>Свыше 200,000 ₽</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><i class="icon-target"></i> Цель использования</label>
+                        <textarea class="form-control" rows="3" placeholder="Игры, работа, программирование..." required></textarea>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                        <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Сетка 3x3 с комплектующими -->
+    <section id="components" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5"><i class="icon-fire"></i> Популярные комплектующие</h2>
+            <div class="row">
+                <!-- Видеокарта -->
+                <div class="col-md-4 mb-4">
+                    <div class="card component-card h-100 text-center">
+                        <div class="card-body">
+                            <img src="img/gpu.jpg" alt="Видеокарта" class="component-image">
+                            <h5 class="card-title">Видеокарты</h5>
+                            <span class="badge bg-success category-badge">RTX 40 series</span>
+                            <p class="card-text mt-2">Мощные графические ускорители для игр и рендеринга</p>
+                            <div class="mt-3">
+                                <button class="btn btn-outline-primary btn-sm">Смотреть каталог</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Процессоры -->
+                <div class="col-md-4 mb-4">
+                    <div class="card component-card h-100 text-center">
+                        <div class="card-body">
+                            <img src="img/cpu.jpg" alt="Процессор" class="component-image">
+                            <h5 class="card-title">Процессоры</h5>
+                            <span class="badge bg-warning category-badge">Intel & AMD</span>
+                            <p class="card-text mt-2">Центральные процессоры последнего поколения</p>
+                            <div class="mt-3">
+                                <button class="btn btn-outline-primary btn-sm">Смотреть каталог</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Материнские платы -->
+                <div class="col-md-4 mb-4">
+                    <div class="card component-card h-100 text-center">
+                        <div class="card-body">
+                            <img src="img/motherboard.jpg" alt="Материнская плата" class="component-image">
+                            <h5 class="card-title">Материнские платы</h5>
+                            <span class="badge bg-dark category-badge">DDR5 Ready</span>
+                            <p class="card-text mt-2">Основа вашей системы с современными интерфейсами</p>
+                            <div class="mt-3">
+                                <button class="btn btn-outline-primary btn-sm">Смотреть каталог</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Вторая строка комплектующих -->
+            <div class="row mt-4">
+                <!-- Оперативная память -->
+                <div class="col-md-4 mb-4">
+                    <div class="card component-card h-100 text-center">
+                        <div class="card-body">
+                            <img src="img/ram.jpg" alt="Оперативная память" class="component-image">
+                            <h5 class="card-title">Оперативная память</h5>
+                            <span class="badge bg-success category-badge">DDR5</span>
+                            <p class="card-text mt-2">Высокоскоростная память для multitasking</p>
+                            <div class="mt-3">
+                                <button class="btn btn-outline-primary btn-sm">Смотреть каталог</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Накопители -->
+                <div class="col-md-4 mb-4">
+                    <div class="card component-card h-100 text-center">
+                        <div class="card-body">
+                            <img src="img/ssd.jpg" alt="SSD накопитель" class="component-image">
+                            <h5 class="card-title">SSD накопители</h5>
+                            <span class="badge bg-primary category-badge">NVMe</span>
+                            <p class="card-text mt-2">Сверхбыстрые диски для мгновенной загрузки</p>
+                            <div class="mt-3">
+                                <button class="btn btn-outline-primary btn-sm">Смотреть каталог</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блоки питания -->
+                <div class="col-md-4 mb-4">
+                    <div class="card component-card h-100 text-center">
+                        <div class="card-body">
+                            <img src="img/psu.jpg" alt="Блок питания" class="component-image">
+                            <h5 class="card-title">Блоки питания</h5>
+                            <span class="badge bg-danger category-badge">80+ Gold</span>
+                            <p class="card-text mt-2">Надежное питание для стабильной работы системы</p>
+                            <div class="mt-3">
+                                <button class="btn btn-outline-primary btn-sm">Смотреть каталог</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Аккордеон с FAQ -->
+    <section id="support" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5"><i class="icon-help-circled"></i> Часто задаваемые вопросы</h2>
+            <div class="accordion" id="faqAccordion">
+                <!-- Вопрос 1 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Как подобрать совместимые комплектующие?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Мы предоставляем бесплатную услугу проверки совместимости. Также используем PCPartPicker для точного подбора компонентов.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Вопрос 2 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            Есть ли гарантия на комплектующие?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Да, все комплектующие имеют официальную гарантию от 2 до 5 лет в зависимости от производителя.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Вопрос 3 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Предоставляете ли вы услугу сборки ПК?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Да, мы предлагаем профессиональную сборку, тестирование и настройку ПК под ключ.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Секция сбора средств как в видео -->
+    <section id="donate" class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold">Поддержите наш проект!</h2>
+                    <p class="lead">Помогите нам развивать сообщество энтузиастов ПК</p>
+                    <p>Ваши средства пойдут на:</p>
+                    <ul>
+                        <li>Создание образовательного контента</li>
+                        <li>Организацию мастер-классов по сборке ПК</li>
+                        <li>Разработку полезных инструментов для сообщества</li>
+                        <li>Поддержку технической базы</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body text-dark">
+                            <h5 class="card-title text-center">Поддержать проект</h5>
+                            
+                            <!-- Форма доната как в видео -->
+                            <form action="https://yoomoney.ru/quickpay/confirm.xml" method="POST" target="_blank">
+                                <!-- Сумма доната -->
+                                <div class="mb-3">
+                                    <label class="form-label">Сумма поддержки</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" name="sum" value="500" min="100" step="100" required>
+                                        <span class="input-group-text">₽</span>
+                                    </div>
+                                    <div class="form-text">Минимальная сумма 100 рублей</div>
+                                </div>
+                                
+                                <!-- Ваши пожелания -->
+                                <div class="mb-3">
+                                    <label class="form-label">Ваши пожелания (необязательно)</label>
+                                    <textarea class="form-control" name="comment" rows="2" placeholder="На что направить средства?"></textarea>
+                                </div>
+                                
+                                <!-- Скрытые поля для ЮMoney -->
+                                <input type="hidden" name="receiver" value="4100117448319442">
+                                <input type="hidden" name="formcomment" value="PC Components: поддержка проекта">
+                                <input type="hidden" name="short-dest" value="Поддержка проекта PC Components">
+                                <input type="hidden" name="label" value="donate_pc_components">
+                                <input type="hidden" name="quickpay-form" value="donate">
+                                <input type="hidden" name="targets" value="Поддержка проекта PC Components">
+                                <input type="hidden" name="successURL" value="https://your-site.ru/success">
+                                
+                                <!-- Кнопка оплаты -->
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-warning btn-lg">
+                                        <i class="icon-money"></i> Поддержать проект
+                                    </button>
+                                </div>
+                            </form>
+                            
+                            <div class="mt-3 text-center">
+                                <small class="text-muted">Оплата через ЮMoney</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Футер -->
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <h5>PC Components</h5>
+        </div>
+    </footer>
+
+    <!-- ПОДКЛЮЧАЕМ ВАШ JS ФАЙЛ -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
